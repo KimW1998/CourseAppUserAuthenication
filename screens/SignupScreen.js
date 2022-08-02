@@ -14,15 +14,15 @@ function SignupScreen() {
     setIsAuthenticating(true);
     try {
      const token = await createUser(email, password);
-      authCtx.authenticate(token);
+      authCtx.authenticate(token)
     } catch (error) {
       Alert.alert(
         "Authentication failed",
         "Could not create user, please check your input and try again later"
       );
+      setIsAuthenticating(false);
     }
 
-    setIsAuthenticating(false);
   }
 
   if (isAuthenticating) {
